@@ -1,27 +1,28 @@
 
 <html>
-	<head>
-		<title>iFrame Buster</title>
-	</head>
-	<body>
-		<script type="text/javascript">
-		    var getUrlParam = function(name, url) {
-    			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-    			var regexS ="[\\?&]"+name+"=([^&#]*)";
-    			var regex = new RegExp(regexS);
-    			if (typeof(url) == 'undefined') url = location.href;
-    			var results = regex.exec(url);
-    			if (results == null) {
-    				return '';
-    			} else {
-    				return decodeURIComponent(results[1]);
-    			}
-    		}
-    		var doc = document, tag = doc.createElement('SCRIPT'),
-				version = getUrlParam('v') ? getUrlParam('v') : '3.0';
-			tag.className = 'rpploader';
-    		tag.src = getUrlParam('protocol') + "//" + getUrlParam('host') + "/frontend/v" + version + "/serve.js?fif=loaded&p=" + getUrlParam('p') + "&click_macro=" + getUrlParam('click_macro') + "&cache_buster=" + getUrlParam('cache_buster') + '&config=' + getUrlParam('config');
-    		doc.body.insertBefore(tag, doc.body.firstChild);
-		</script>
-	</body>
+    <head>
+        <title>iFrame Buster</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var getUrlParam = function(name, url) {
+                name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+                var regexS ="[\\?&]"+name+"=([^&#]*)";
+                var regex = new RegExp(regexS);
+                if (typeof(url) == 'undefined') url = location.href;
+                var results = regex.exec(url);
+                if (results == null) {
+                    return '';
+                } else {
+                    return decodeURIComponent(results[1]);
+                }
+            }
+            var doc = document, tag = doc.createElement('SCRIPT'),
+                version = getUrlParam('v') ? getUrlParam('v') : '3.0';
+            tag.className = 'rpploader';
+            tag.src = getUrlParam('protocol') + "//" + getUrlParam('host') + "/frontend/v" + version + "/serve.js?fif=loaded&p=" + getUrlParam('p') + "&click_macro=" + getUrlParam('click_macro') + "&cache_buster=" + getUrlParam('cache_buster') + '&config=' + getUrlParam('config');
+            doc.body.insertBefore(tag, doc.body.firstChild);
+        </script>
+    </body>
 </html>
+
